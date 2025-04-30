@@ -30,22 +30,24 @@ select.addEventListener('change', () => {
   fetchSunlightData(lat, lon);
 });
 
-// Fetch data from API with error handling
+// Fetch data from API with CORS proxy
 function fetchSunlightData(lat, lon) {
-  const url = `https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}`;
+  const url = `https://cors-anywhere.herokuapp.com/https://api.sunrisesunset.io/json?lat=${lat}&lng=${lon}`;
 
   fetch(url)
     .then(res => {
+      console.log('Response:', res); // Check the response object
       if (!res.ok) {
         throw new Error(`API request failed with status ${res.status}`);
       }
       return res.json();
     })
     .then(data => {
+      console.log('API Data:', data); // Check the parsed JSON
       showResults(data);
     })
     .catch(err => {
-      console.error(err); // Show error in console
+      console.error('Error fetching data:', err); // Log the error
       showError("Failed to fetch data. Please try again.");
     });
 }
