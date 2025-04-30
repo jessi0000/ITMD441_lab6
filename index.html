@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sunrise & Sunset Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>🌞 Sunrise & Sunset Times</h1>
+    <p>Select a location to see today and tomorrow's daylight times.</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label for="location-select">Choose a location:</label>
+      <select id="location-select">
+        <option value="">Select a city</option>
+      </select>
+    </section>
+
+    <section id="results">
+      <div id="placeholder">Please select a location to view data.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data provided by <a href="https://sunrisesunset.io/api/">SunriseSunset.io API</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
